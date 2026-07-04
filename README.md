@@ -141,9 +141,9 @@ mkdir contamination
 
 cd contamination
 
-minimap2 -ax map-ont /data/2025_2/metagenomics/shotgun/reference/vaccinium_floribundum.mmi ~/shotgun/trim/b10_nanofilt.fastq.gz | samtools fastq -n -f 4 - > b10_clean_vfl.fastq
+minimap2 -ax map-ont /data/2026_1/metagenomics/shotgun/reference/bos_taurus.mmi ~/shotgun/trim/b10_nanofilt.fastq.gz | samtools fastq -n -f 4 - > b10_clean_bta.fastq
 
-minimap2 -ax map-ont /data/BL16/nanopore/shotgun_24_1/homo/homo_index.mmi b10_clean_vfl.fastq | samtools fastq -n -f 4 - > b10_clean_hsa.fastq
+minimap2 -ax map-ont /data/BL16/nanopore/shotgun_24_1/homo/homo_index.mmi b10_clean_bta.fastq | samtools fastq -n -f 4 - > b10_clean_hsa.fastq
 
 seqkit stats -a -j 15 *.fastq > b10_contamination_stats.txt
 ```
@@ -193,7 +193,7 @@ flye --nano-hq b10_final.fastq --meta --threads 10 --out-dir b10
 
 mv b10/assembly.fasta b10_assembly.fasta
 
-metaquast.py -m 1000 --gene-finding -r /data/2025_2/metagenomics/shotgun/reference/metaquast/ -o b10_assemble_stats b10_assembly.fasta
+metaquast.py -m 1000 --gene-finding -r /data/2026_1/metagenomics/shotgun/reference/metaquast -o b10_assemble_stats b10_assembly.fasta
 ```
 
 ## 7. Binning (Agrupación y evaluación de MAGs)
