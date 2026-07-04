@@ -232,22 +232,6 @@ conda activate pgcgap
 prokka --outdir prokka --cpus 15 --metagenome --prefix b10 ~/shotgun/assembly/b10_assembly.fasta
 ```
 
-### Identificar los códigos y descripción de las rutas metabólicas presentes en los contigs con el programa minpath:
-
-```bash
-egrep "eC_number=" prokka/b10.gff |cut -f9 | cut -f1,2 -d ';'| sed 's/ID=//g'| sed 's/;eC_number=/\t/g' > b10_ec.txt
-
-python /data/db/minpath/MinPath.py -any b10_ec.txt -map /data/db/minpath/data/ec2path -report b10_ec.report
-```
-
-### Visualizar las rutas metabólicas más relevantes en MetaCyc (https://metacyc.org/):
-
-<img width="543" alt="image" src="https://github.com/user-attachments/assets/e6ef2663-f50a-4197-af0e-23f4279099d3" />
-
-<img width="445" alt="image" src="https://github.com/user-attachments/assets/e1edce45-58bd-4bfd-a4d3-500420b88c17" />
-
-<img width="694" alt="image" src="https://github.com/user-attachments/assets/d0ed055d-6987-40e0-8bb0-9f81edb65919" />
-
 ## 9. Identificación de genes de resistencia y virulencia en los contigs
 
 ```bash
